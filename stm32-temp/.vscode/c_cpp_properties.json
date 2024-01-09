@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/Libraries/CMSIS/**",
+                "${workspaceFolder}/Libraries/STM32F1xx_HAL_Driver/Inc/**",
+                "${workspaceFolder}/User/inc/**",
+                "${workspaceFolder}/User/**",
+                "${workspaceFolder}/Public/**",
+                "${workspaceFolder}/app/**"
+            ],
+            "defines": [
+                "USE_HAL_DRIVER",
+                "STM32F103xE"
+            ],
+            "compilerPath": "D:/Arm_Development_Toolchains/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc.exe",
+            "cStandard": "c99",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "windows-gcc-arm"
+        }
+    ],
+    "version": 4
+}
