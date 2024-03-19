@@ -128,7 +128,7 @@ clean:
 ifeq ($(OS), Windows_NT)
 	@-rmdir /s /q $(OUT)
 	@-rmdir /s /q $(BUILD)
-else ifeq ($(OS), Linux)
+else
 	@-rm -rf $(OUT)
 	@-rm -rf $(BUILD)
 endif
@@ -136,14 +136,14 @@ endif
 $(BUILD):
 ifeq ($(OS), Windows_NT)
 	@mkdir $@
-else ifeq ($(OS), Linux)
+else
 	@mkdir -p $@
 endif
 
 $(OUT):
 ifeq ($(OS), Windows_NT)
 	@mkdir $@
-else ifeq ($(OS), Linux)
+else
 	@mkdir -p $@
 endif
 
