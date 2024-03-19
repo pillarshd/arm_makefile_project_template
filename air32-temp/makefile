@@ -60,7 +60,7 @@ FPU += -mfloat-abi=soft# 无fpu
 SPECS := nano.specs# 使用更小的标准库和运行时支持
 
 # -lm选项用于链接libm.so库，即math数学函数库 -lgc链接c库 -lnosys不链接c库的系统调用部分
-LIB := -lc -lnosys
+LIB := -lc -lnosys -lm
 LIBDIR :=
 
 ##############################################################################
