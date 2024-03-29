@@ -7,7 +7,7 @@
 - [GNU Arm Embedded Toolchain](https://developer.arm.com/downloads/-/gnu-rm)
 - [pyocd](https://github.com/pyocd/pyOCD)
 - make
-- vscode:
+- vscode，推荐插件：
     - Cortex-Debug
     - C/C++
     - Doxygen Documentation Generato
