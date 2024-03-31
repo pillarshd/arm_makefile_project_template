@@ -4,6 +4,7 @@ void HAL_MspInit(void)
 {
     /* system_init--HSI 48M */
     set_system_clock();
+    LOG_INIT(115200);
 }
 
 void HAL_UART_MspInit(UART_HandleTypeDef *huart)

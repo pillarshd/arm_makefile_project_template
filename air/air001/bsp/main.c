@@ -5,7 +5,6 @@ int main(void)
 {
     /* 初始化所有外设，Flash接口，SysTick */
     HAL_Init();
-    LOG_INIT(115200);
     /* init */
     led_init();
 
