@@ -1,12 +1,5 @@
 #include "system.h"
 
-void Error_Handler(void)
-{
-  while (1)
-  {
-  }
-}
-
 static void set_system_clock_HSI_48Hz()
 {
     RCC_OscInitTypeDef RCC_OscInitStruct;
@@ -44,6 +37,43 @@ static void set_system_clock_HSI_48Hz()
 
 void set_system_clock()
 {
-    HAL_RCC_MCOConfig(RCC_MCO2, RCC_MCO1SOURCE_SYSCLK, RCC_MCODIV_1);
+    // HAL_RCC_MCOConfig(RCC_MCO2, RCC_MCO1SOURCE_SYSCLK, RCC_MCODIV_1);
     set_system_clock_HSI_48Hz();
 }
+
+#if (LOG_ON != 0)
+
+UART_HandleTypeDef log_uart_handle;
+void log_init(u32 baud)
+{
+    LOG_RX_GPIO_CLK_ENABLE();
+    LOG_TX_GPIO_CLK_ENABLE();
+    GPIO_InitTypeDef GPIO_InitStruct;
+    GPIO_InitStruct.Pin = LOG_TX_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = LOG_TX_AF;
+    HAL_GPIO_Init(LOG_TX_GPIO_PORT, &GPIO_InitStruct);
+    GPIO_InitStruct.Pin = LOG_RX_PIN;
+    GPIO_InitStruct.Alternate = LOG_RX_AF;
+    HAL_GPIO_Init(LOG_RX_GPIO_PORT, &GPIO_InitStruct);
+
+    LOG_CLK_ENABLE();
+    log_uart_handle.Instance = LOG_USART;
+    log_uart_handle.Init.BaudRate = baud;
+    log_uart_handle.Init.WordLength = UART_WORDLENGTH_8B;
+    log_uart_handle.Init.StopBits = UART_STOPBITS_1;
+    log_uart_handle.Init.Parity = UART_PARITY_NONE;
+    log_uart_handle.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+    log_uart_handle.Init.Mode = UART_MODE_TX_RX;
+    HAL_UART_Init(&log_uart_handle);
+}
+
+int _write(int fd, char *ptr, int size)
+{
+    HAL_UART_Transmit(&log_uart_handle, (u8 *)ptr, size, HAL_MAX_DELAY);
+    return size;
+}
+
+#endif

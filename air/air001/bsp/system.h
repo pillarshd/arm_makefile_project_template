@@ -3,6 +3,8 @@
 
 #include "air001xx_hal.h"
 
+#define LOG_ON  1
+
 /* 定义一些常用的数据类型短关键字 */
 typedef int32_t  s32;
 typedef int16_t s16;
@@ -30,7 +32,34 @@ typedef __I uint32_t vuc32;
 typedef __I uint16_t vuc16; 
 typedef __I uint8_t vuc8;
 
-void Error_Handler(void);
+#if (LOG_ON != 0)
+
+#include <stdio.h>
+#define LOG_RX_GPIO_PORT            GPIOA
+#define LOG_RX_GPIO_CLK_ENABLE()    __HAL_RCC_GPIOA_CLK_ENABLE()
+#define LOG_RX_PIN                  GPIO_PIN_3
+#define LOG_RX_AF                   GPIO_AF4_USART2
+
+#define LOG_TX_GPIO_PORT            GPIOA
+#define LOG_TX_GPIO_CLK_ENABLE()    __HAL_RCC_GPIOA_CLK_ENABLE()
+#define LOG_TX_PIN                  GPIO_PIN_2
+#define LOG_TX_AF                   GPIO_AF4_USART2
+
+#define LOG_CLK_ENABLE()    __HAL_RCC_USART2_CLK_ENABLE()
+#define LOG_USART           USART2
+void log_init(u32 baud);
+extern UART_HandleTypeDef log_uart_handle;
+#define LOG_INIT(baud)          log_init(baud)
+#define LOG(format, ...)        printf(format, ## __VA_ARGS__) 
+
+#else
+
+#define LOG_INIT(band) 
+#define LOG(format, ...) 
+
+#endif
+
+#define Error_Handler() while(1)
 void set_system_clock(void);
 
 #endif

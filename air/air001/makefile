@@ -18,7 +18,8 @@ SRC_C := \
 	lib/driver/Src/air001xx_hal_gpio.c \
 	lib/driver/Src/air001xx_hal_uart.c \
 	lib/driver/Src/air001xx_hal_dma.c \
-	$(wildcard bsp/*.c)
+	$(wildcard bsp/*.c) \
+	app/led/led.c
 # C++源文件
 SRC_CPP :=
 # 启动文件
@@ -30,7 +31,8 @@ FLASH_LD := lib/startup/AIR001xx_FLASH.ld
 INC_PATH := \
 	lib/CMSIS/ \
 	lib/driver/Inc/ \
-	bsp/
+	bsp/ \
+	app/led
 # 宏定义
 DEFINE := \
 	USE_HAL_DRIVER \
@@ -38,7 +40,7 @@ DEFINE := \
 # 支持浮点数打印  ON/OFF
 PRINTF_FLOAT := OFF
 # 调试信息 ON/OFF
-DEBUG := ON
+DEBUG := OFF
 # 优化等级 Og调试
 LEVEL := Os
 ifeq ($(DEBUG), ON)
