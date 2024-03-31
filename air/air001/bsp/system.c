@@ -46,19 +46,6 @@ void set_system_clock()
 UART_HandleTypeDef log_uart_handle;
 void log_init(u32 baud)
 {
-    LOG_RX_GPIO_CLK_ENABLE();
-    LOG_TX_GPIO_CLK_ENABLE();
-    GPIO_InitTypeDef GPIO_InitStruct;
-    GPIO_InitStruct.Pin = LOG_TX_PIN;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_PULLUP;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-    GPIO_InitStruct.Alternate = LOG_TX_AF;
-    HAL_GPIO_Init(LOG_TX_GPIO_PORT, &GPIO_InitStruct);
-    GPIO_InitStruct.Pin = LOG_RX_PIN;
-    GPIO_InitStruct.Alternate = LOG_RX_AF;
-    HAL_GPIO_Init(LOG_RX_GPIO_PORT, &GPIO_InitStruct);
-
     LOG_CLK_ENABLE();
     log_uart_handle.Instance = LOG_USART;
     log_uart_handle.Init.BaudRate = baud;
