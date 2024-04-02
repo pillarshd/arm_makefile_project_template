@@ -1,5 +1,6 @@
 #include "air001xx_it.h"
 #include "system.h"
+#include "app.h"
 
 /******************************************************************************/
 /*          Cortex-M0+ Processor Interruption and Exception Handlers          */

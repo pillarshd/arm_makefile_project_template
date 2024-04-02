@@ -1,4 +1,5 @@
 #include "system.h"
+#include "app.h"
 
 void HAL_MspInit(void)
 {

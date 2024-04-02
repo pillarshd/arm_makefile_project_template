@@ -32,7 +32,8 @@ INC_PATH := \
 	lib/CMSIS/ \
 	lib/driver/Inc/ \
 	bsp/ \
-	app/led
+	app/led/ \
+	app/
 # 宏定义
 DEFINE := \
 	USE_HAL_DRIVER \
