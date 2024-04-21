@@ -44,10 +44,8 @@ LEVEL := Og
 endif
 # C版本
 VERSION_C := c99
-# C++版本
-VERSION_CXX := c++17
 # 芯片的架构
-MCU_ARCH := cortex-m0plus
+MCU_ARCH := cortex-m3
 # FUP
 FPU := soft# 无fpu
 # 使用更小的标准库和运行时支持
