@@ -9,7 +9,8 @@
             "type": "cortex-debug",
             "runToEntryPoint": "main",
             "servertype": "pyocd",
-            "targetId": "apm32f103c8"
+            "targetId": "apm32f103c8",
+            "cmsisPack": "pack/Geehy.APM32F1xx_DFP.1.1.0.pack"
         }
     ]
 }
