@@ -50,8 +50,8 @@ static u32 fac_s = 0;
 static void systick_init()
 {
     SysTick_Config(SystemCoreClock / 1000U);
-    SysTick_ConfigCLKSource(SYSTICK_CLK_SOURCE_HCLK_DIV8);
-    fac_s = SystemCoreClock / 8;
+    SysTick_ConfigCLKSource(SYSTICK_CLK_SOURCE_HCLK);
+    fac_s = SystemCoreClock;
     fac_ms = fac_s / 1000;
     fac_us = fac_ms / 1000;
 }
