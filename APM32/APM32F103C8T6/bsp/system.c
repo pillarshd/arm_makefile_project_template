@@ -78,24 +78,34 @@ static void delay_internal(u32 n, u32 fac)
     }
 }
 
-inline void delay_us(u32 nus)
+void delay_us(u32 nus)
 {
-    if(nus > 300000000)
+    while(nus > 1000000)
     {
-        nus -= 300000000;
-        delay_internal(300000000, fac_us);
+        nus -= 1000000;
+        delay_internal(1000000, fac_us);
     }
     delay_internal(nus, fac_us);
 }
 
 
-inline void delay_ms(u16 nms)
+void delay_ms(u16 nms)
 {
+    while(nms > 1000)
+    {
+        nms -= 1000;
+        delay_internal(1000, fac_ms);
+    }
     delay_internal(nms, fac_ms);
 }
 
-inline void delay_s(u8 ns)
+void delay_s(u8 ns)
 {
+    while(ns > 10)
+    {
+        ns -= 10;
+        delay_internal(10, fac_s);
+    }
     delay_internal(ns, fac_s);
 }
 
