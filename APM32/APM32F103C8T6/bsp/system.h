@@ -39,10 +39,10 @@ extern "C" {
  * @brief 位带区转位带别名区地址
  *        bit_word_addr =bit_band_base + (byte_offset×32) + (bit_number×4)
  ****************************************************************************/
-#define _BITBAND(addr, bitnum)       ((addr & 0xF0000000) + 0x02000000) + \
+#define BITBAND(addr, bitnum)       ((addr & 0xF0000000) + 0x02000000) + \
                                     ((addr & 0x000FFFFF) << 5) + (bitnum << 2)
-#define _MEM_ADDR(addr)              (*((volatile uint32_t *)(addr)))
-#define _BIT_ADDR(addr, bitnum)      _MEM_ADDR(BITBAND(addr, bitnum))
+#define MEM_ADDR(addr)              (*((volatile uint32_t *)(addr)))
+#define BIT_ADDR(addr, bitnum)      MEM_ADDR(BITBAND(addr, bitnum))
 
 /* IO口输出地址映射 */
 #define GPIOA_ODR_ADDR    (GPIOA_BASE + 12) //0x4001080C 
@@ -62,29 +62,29 @@ extern "C" {
 #define GPIOG_IDR_ADDR    (GPIOG_BASE + 8) //0x40011E08 
 
 /* 输出 */
-#define _PAOUT(n)   _BIT_ADDR(GPIOA_ODR_ADDR, n)
-#define _PBOUT(n)   _BIT_ADDR(GPIOB_ODR_ADDR, n)
-#define _PCOUT(n)   _BIT_ADDR(GPIOC_ODR_ADDR, n)
-#define _PDOUT(n)   _BIT_ADDR(GPIOD_ODR_ADDR, n)
-#define _PEOUT(n)   _BIT_ADDR(GPIOE_ODR_ADDR, n)
-#define _PFOUT(n)   _BIT_ADDR(GPIOF_ODR_ADDR, n) 
-#define _PGOUT(n)   _BIT_ADDR(GPIOG_ODR_ADDR, n)
+#define PAOUT(n)   BIT_ADDR(GPIOA_ODR_ADDR, n)
+#define PBOUT(n)   BIT_ADDR(GPIOB_ODR_ADDR, n)
+#define PCOUT(n)   BIT_ADDR(GPIOC_ODR_ADDR, n)
+#define PDOUT(n)   BIT_ADDR(GPIOD_ODR_ADDR, n)
+#define PEOUT(n)   BIT_ADDR(GPIOE_ODR_ADDR, n)
+#define PFOUT(n)   BIT_ADDR(GPIOF_ODR_ADDR, n) 
+#define PGOUT(n)   BIT_ADDR(GPIOG_ODR_ADDR, n)
 /* 输入 */
-#define _PAIN(n)    _BIT_ADDR(GPIOA_IDR_ADDR, n)
-#define _PBIN(n)    _BIT_ADDR(GPIOB_IDR_ADDR, n)
-#define _PCIN(n)    _BIT_ADDR(GPIOC_IDR_ADDR, n)
-#define _PDIN(n)    _BIT_ADDR(GPIOD_IDR_ADDR, n)
-#define _PEIN(n)    _BIT_ADDR(GPIOE_IDR_ADDR, n)
-#define _PFIN(n)    _BIT_ADDR(GPIOF_IDR_ADDR, n)
-#define _PGIN(n)    _BIT_ADDR(GPIOG_IDR_ADDR, n)
+#define PAIN(n)    BIT_ADDR(GPIOA_IDR_ADDR, n)
+#define PBIN(n)    BIT_ADDR(GPIOB_IDR_ADDR, n)
+#define PCIN(n)    BIT_ADDR(GPIOC_IDR_ADDR, n)
+#define PDIN(n)    BIT_ADDR(GPIOD_IDR_ADDR, n)
+#define PEIN(n)    BIT_ADDR(GPIOE_IDR_ADDR, n)
+#define PFIN(n)    BIT_ADDR(GPIOF_IDR_ADDR, n)
+#define PGIN(n)    BIT_ADDR(GPIOG_IDR_ADDR, n)
 
 /*****************************************************************************
  * @brief LOG
  ****************************************************************************/
 #if (LOG_ON != 0)
 #define LOG_USART           USART1
-#define _LOG_INIT(band)      log_init(band)
-#define _LOG(format, ...)    printf(format, ## __VA_ARGS__)
+#define LOG_INIT(band)      log_init(band)
+#define LOG(format, ...)    printf(format, ## __VA_ARGS__)
 // #define LOG(...)    printf(__VA_ARGS__)
 #include <stdio.h>
 #define LOG_CLK                    RCM_APB2_PERIPH_USART1

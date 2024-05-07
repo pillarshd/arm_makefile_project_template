@@ -30,14 +30,14 @@ typedef enum
 #define LED1_PIN                         GPIO_PIN_13
 #define LED1_GPIO_PORT                   GPIOC
 #define LED1_GPIO_CLK                    RCM_APB2_PERIPH_GPIOC
-#define LED1_OUT    _PCOUT(13)
+#define LED1_OUT    PCOUT(13)
 #endif
 
 #ifdef LED2_EN
 #define LED2_PIN                         GPIO_PIN_0
 #define LED2_GPIO_PORT                   GPIOC
 #define LED2_GPIO_CLK                    RCU_GPIOC
-#define LED2_OUT    _PCOUT(0)
+#define LED2_OUT    PCOUT(0)
 #endif
 
 void led_init(void);
