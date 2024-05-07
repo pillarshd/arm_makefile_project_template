@@ -1,6 +1,22 @@
 #include "system.h"
 #include "app.h"
 
+rt_uint8_t rt_thread_get_stack_max_used(rt_thread_t thread)
+{
+    rt_uint8_t *ptr;
+    rt_ubase_t count;
+    ptr = (rt_uint8_t *)thread->stack_addr;
+    while (*ptr == '#')
+    {
+        ptr ++;
+    }
+    /* get unused size */
+    count = (rt_ubase_t) ptr - (rt_ubase_t) thread->stack_addr;
+    /* get used size */
+    count = thread->stack_size - count;
+    return count * 100 / thread->stack_size;
+}
+
 static struct rt_thread led_thread;
 static ALIGN(RT_ALIGN_SIZE) u8 led_thread_stack[256];
 static void led_thread_entry(void* parameter)
@@ -10,6 +26,7 @@ static void led_thread_entry(void* parameter)
         rt_thread_delay(500);
         led_toggle(LED1);
         rt_kprintf("...led toggle\r\n");
+        rt_kprintf("...led thread stack max used : %d%%\r\n", rt_thread_get_stack_max_used(&led_thread));
     }
 }
 
