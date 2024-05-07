@@ -85,6 +85,7 @@ extern "C" {
 #define LOG_USART           USART1
 #define LOG_INIT(band)      log_init(band)
 #define LOG(format, ...)    printf(format, ## __VA_ARGS__)
+#define LOG_IN(format, ...) scanf(format, ## __VA_ARGS__)
 // #define LOG(...)    printf(__VA_ARGS__)
 #include <stdio.h>
 #define LOG_CLK                    RCM_APB2_PERIPH_USART1

@@ -12,7 +12,7 @@ int main(void)
     {
         led_toggle(LED1);
         LOG("...led toggle\r\n");
-        scanf("%c\r\n",&data);
+        LOG_IN("%c\r\n",&data);
         LOG("%c\r\n",data);
     }
 }
