@@ -118,14 +118,15 @@ LDFLAGS += #-nostartfiles# -nostartfiles 在链接的时候不使用系统标准
 LDFLAGS += -T$(FLASH_LD)# 指定使用$(FLASH_LD)变量的值作为工程的链接脚本
 LDFLAGS += -Wl,-Map=$(MAP),--cref# -Map=$(MAP)选项用于将链接的映射关系打印到标准输出上 --cref选项是Cross Reference的简写，用于输出交叉引用表
 LDFLAGS += -Wl,--gc-sections# 用于指定编译器不把未在可执行程序中进行调用的函数链接到可执行程序中，这样做可在一定程度上节约FLASH和内存空间
-LDFLAGS += #-Wl,-u,Reset_Handler
+LDFLAGS += #-Wl,-u,Reset_Handler # 强制引用,防止因为未引用而被优化
+LDFLAGS += #-Wl,-e,Reset_Handler # 指定程序入口
 ################################# 编译工具 ####################################
 CC_PREFIX := arm-none-eabi-
 CC = $(CC_PREFIX)gcc
 CXX = $(CC_PREFIX)g++
 AS = $(CXX) -x assembler-with-cpp#-x assembler-with-cpp 指定源文件使用了哪种编程语言
 CP = $(CC_PREFIX)objcopy
-DP = $(CC_PREFIX)objdump -D -m arm# 反汇编
+DP = $(CC_PREFIX)objdump -D -h -m arm# -D反汇编 -h 段信息
 SIZE = $(CC_PREFIX)size# 查看可执行文件或目标文件中代码段、数据段和其他部分的大小信息
 ################################# 编译规则 ####################################
 .PHONY: defualt_rule all clean

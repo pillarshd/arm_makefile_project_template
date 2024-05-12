@@ -14,8 +14,13 @@
 
 ## 目前支持
 
+- AIR:
+    - AIR001 使用PY32F002A替换
+    - AIR32F103XB（由于涨价，暂时不更新）
 - APM:
-    - APM32F103
-- air(由于涨价，暂时不更新):
-    - air001
-    - air32F103XB
+    - APM32F103：
+        - 基础例程
+        - CPP
+        - RT-Thread-nano
+
+## 最新的makefile请使用三个APM32的例程中的任意一个
