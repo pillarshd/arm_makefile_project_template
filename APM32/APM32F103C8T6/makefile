@@ -18,13 +18,13 @@ SRC_C := \
 # C++源文件
 SRC_CPP := 
 # 启动文件
-STARTUP := lib/startup/startup_apm32f10x_md.S
+STARTUP := lib/startup/my_startup_apm32f10x_md.S
 # 汇编源文件
 SRC_BS = \
 	$(STARTUP)
 SRC_SS := 
 # 链接脚本
-FLASH_LD := lib/startup/gcc_APM32F10xx6.ld
+FLASH_LD := lib/startup/my_gcc_APM32F10xx6.ld
 # 头文件路径
 INC_PATH := \
 	lib/CMSIS/ \
@@ -123,7 +123,7 @@ CC = $(CC_PREFIX)gcc
 CXX = $(CC_PREFIX)g++
 AS = $(CXX) -x assembler-with-cpp#-x assembler-with-cpp 指定源文件使用了哪种编程语言
 CP = $(CC_PREFIX)objcopy
-DP = $(CC_PREFIX)objdump -D -h -m arm# -D反汇编 -h 段信息
+DP = $(CC_PREFIX)objdump -p -D -h -m arm# -D反汇编 -h 段信息 -p 显示elf的程序头
 SIZE = $(CC_PREFIX)size# 查看可执行文件或目标文件中代码段、数据段和其他部分的大小信息
 ################################# 编译规则 ####################################
 .PHONY: defualt_rule all clean

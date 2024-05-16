@@ -23,4 +23,4 @@
         - CPP
         - RT-Thread-nano
 
-## 最新的makefile请使用三个APM32的例程中的任意一个
+## 最新的makefile请使用APM32的例程中的基础历程或者RTT例程
