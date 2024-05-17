@@ -139,7 +139,7 @@ SECTIONS
 
   _start_address_init_data = LOADADDR(.data);
 
-  .data : 
+  .data :
   {
     . = ALIGN(4);
     _start_address_data = .;
@@ -150,7 +150,7 @@ SECTIONS
     _end_address_data = .;
   } >RAM AT> FLASH
 
-  
+
   . = ALIGN(4);
   .bss :
   {
@@ -185,4 +185,3 @@ SECTIONS
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
 }
-

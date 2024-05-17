@@ -15,7 +15,7 @@ extern "C" {
 #define LED2_EN
 #endif
 
-typedef enum 
+typedef enum
 {
 #ifdef LED1_EN
     LED1 = 0,
@@ -41,7 +41,7 @@ typedef enum
 #endif
 
 void led_init(void);
-void led_on(LedType Led); // turn on selected led 
+void led_on(LedType Led); // turn on selected led
 void led_off(LedType Led); // turn off selected led
 void led_toggle(LedType Led); // toggle the selected led
 

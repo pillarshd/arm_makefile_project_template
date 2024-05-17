@@ -45,21 +45,21 @@ extern "C" {
 #define BIT_ADDR(addr, bitnum)      MEM_ADDR(BITBAND(addr, bitnum))
 
 /* IO口输出地址映射 */
-#define GPIOA_ODR_ADDR    (GPIOA_BASE + 12) //0x4001080C 
-#define GPIOB_ODR_ADDR    (GPIOB_BASE + 12) //0x40010C0C 
-#define GPIOC_ODR_ADDR    (GPIOC_BASE + 12) //0x4001100C 
-#define GPIOD_ODR_ADDR    (GPIOD_BASE + 12) //0x4001140C 
-#define GPIOE_ODR_ADDR    (GPIOE_BASE + 12) //0x4001180C 
-#define GPIOF_ODR_ADDR    (GPIOF_BASE + 12) //0x40011A0C    
-#define GPIOG_ODR_ADDR    (GPIOG_BASE + 12) //0x40011E0C    
+#define GPIOA_ODR_ADDR    (GPIOA_BASE + 12) //0x4001080C
+#define GPIOB_ODR_ADDR    (GPIOB_BASE + 12) //0x40010C0C
+#define GPIOC_ODR_ADDR    (GPIOC_BASE + 12) //0x4001100C
+#define GPIOD_ODR_ADDR    (GPIOD_BASE + 12) //0x4001140C
+#define GPIOE_ODR_ADDR    (GPIOE_BASE + 12) //0x4001180C
+#define GPIOF_ODR_ADDR    (GPIOF_BASE + 12) //0x40011A0C
+#define GPIOG_ODR_ADDR    (GPIOG_BASE + 12) //0x40011E0C
 /* IO口输入地址映射 */
-#define GPIOA_IDR_ADDR    (GPIOA_BASE + 8) //0x40010808 
-#define GPIOB_IDR_ADDR    (GPIOB_BASE + 8) //0x40010C08 
-#define GPIOC_IDR_ADDR    (GPIOC_BASE + 8) //0x40011008 
-#define GPIOD_IDR_ADDR    (GPIOD_BASE + 8) //0x40011408 
-#define GPIOE_IDR_ADDR    (GPIOE_BASE + 8) //0x40011808 
-#define GPIOF_IDR_ADDR    (GPIOF_BASE + 8) //0x40011A08 
-#define GPIOG_IDR_ADDR    (GPIOG_BASE + 8) //0x40011E08 
+#define GPIOA_IDR_ADDR    (GPIOA_BASE + 8) //0x40010808
+#define GPIOB_IDR_ADDR    (GPIOB_BASE + 8) //0x40010C08
+#define GPIOC_IDR_ADDR    (GPIOC_BASE + 8) //0x40011008
+#define GPIOD_IDR_ADDR    (GPIOD_BASE + 8) //0x40011408
+#define GPIOE_IDR_ADDR    (GPIOE_BASE + 8) //0x40011808
+#define GPIOF_IDR_ADDR    (GPIOF_BASE + 8) //0x40011A08
+#define GPIOG_IDR_ADDR    (GPIOG_BASE + 8) //0x40011E08
 
 /* 输出 */
 #define PAOUT(n)   BIT_ADDR(GPIOA_ODR_ADDR, n)
@@ -67,7 +67,7 @@ extern "C" {
 #define PCOUT(n)   BIT_ADDR(GPIOC_ODR_ADDR, n)
 #define PDOUT(n)   BIT_ADDR(GPIOD_ODR_ADDR, n)
 #define PEOUT(n)   BIT_ADDR(GPIOE_ODR_ADDR, n)
-#define PFOUT(n)   BIT_ADDR(GPIOF_ODR_ADDR, n) 
+#define PFOUT(n)   BIT_ADDR(GPIOF_ODR_ADDR, n)
 #define PGOUT(n)   BIT_ADDR(GPIOG_ODR_ADDR, n)
 /* 输入 */
 #define PAIN(n)    BIT_ADDR(GPIOA_IDR_ADDR, n)
@@ -96,7 +96,7 @@ void log_init(u32 baud);
 #else
 #define _LOG(format, ...)
 #define _LOG_INIT(band)
-#endif // (LOG_ON != 0) 
+#endif // (LOG_ON != 0)
 
 
 void system_init(void);

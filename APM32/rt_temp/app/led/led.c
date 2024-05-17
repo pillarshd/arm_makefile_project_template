@@ -12,7 +12,7 @@ static GPIO_T* GPIO_PORT[LEDn] = {
 /* GPIO PIN */
 static const GPIO_PIN_T GPIO_PIN[LEDn] = {
 #ifdef LED1_EN
-    LED1_PIN, 
+    LED1_PIN,
 #endif
 #ifdef LED2_EN
     LED2_PIN

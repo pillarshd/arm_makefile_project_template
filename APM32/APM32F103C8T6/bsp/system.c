@@ -3,7 +3,7 @@
 #if (LOG_ON != 0)
 
 void log_init(u32 baud)
-{   
+{
    /* enable GPIO clock */
    RCM_EnableAPB2PeriphClock(LOG_GPIO_CLK);
    /* enable USART clock */

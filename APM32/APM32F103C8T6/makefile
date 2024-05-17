@@ -16,13 +16,13 @@ SRC_C := \
 	$(wildcard bsp/*.c) \
 	app/led/led.c
 # C++源文件
-SRC_CPP := 
+SRC_CPP :=
 # 启动文件
 STARTUP := lib/startup/my_startup_apm32f10x_md.S
 # 汇编源文件
 SRC_BS = \
 	$(STARTUP)
-SRC_SS := 
+SRC_SS :=
 # 链接脚本
 FLASH_LD := lib/startup/my_gcc_APM32F10xx6.ld
 # 头文件路径
@@ -93,7 +93,7 @@ OPT_FLAGS += -ffunction-sections -fdata-sections# 该选项可以让链接器执
 ASFLAGS = -c $(OPT_FLAGS) $(DEBUG_FLAGS) # -c 不进行链接 -mthumb代码能以Thumb状态运行
 # C编译标签
 CFLAGS = -c $(OPT_FLAGS) $(INC_FLAGS) $(DEFINE_FLAGS)
-CFLAGS += -fomit-frame-pointer # -fomit-frame-pointer减少栈帧的切换和栈地址的保存，可提高程序性能 
+CFLAGS += -fomit-frame-pointer # -fomit-frame-pointer减少栈帧的切换和栈地址的保存，可提高程序性能
 CFLAGS += -std=$(VERSION_C) -Wall # Wall选项用于打开代码的所有可选警告
 CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"# 生成依赖信息
 CFLAGS += #-fverbose-asm # 用于在生成的汇编代码中加入额外的注释信息来使汇编代码更具可读性
