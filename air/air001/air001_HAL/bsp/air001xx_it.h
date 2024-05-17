@@ -3,7 +3,7 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
 void NMI_Handler(void);
 void HardFault_Handler(void);

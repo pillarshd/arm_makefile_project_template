@@ -67,7 +67,7 @@ extern "C" {
 #define _PCOUT(n)   _BIT_ADDR(GPIOC_ODR_ADDR, n)
 #define _PDOUT(n)   _BIT_ADDR(GPIOD_ODR_ADDR, n)
 #define _PEOUT(n)   _BIT_ADDR(GPIOE_ODR_ADDR, n)
-#define _PFOUT(n)   _BIT_ADDR(GPIOF_ODR_ADDR, n) 
+#define _PFOUT(n)   _BIT_ADDR(GPIOF_ODR_ADDR, n)
 #define _PGOUT(n)   _BIT_ADDR(GPIOG_ODR_ADDR, n)
 /* 输入 */
 #define _PAIN(n)    _BIT_ADDR(GPIOA_IDR_ADDR, n)

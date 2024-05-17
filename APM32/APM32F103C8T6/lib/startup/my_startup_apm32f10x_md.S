@@ -57,7 +57,7 @@ L_loop0_0:
   adds r4, r0, r3
   cmp r4, r1
   bcc L_loop0
-  
+
   ldr r2, =_sbss
   ldr r4, =_ebss
   movs r3, #0

@@ -1,7 +1,7 @@
 /* Entry Point */
 ENTRY(Reset_Handler)
 
-/* For stack pointer */ 
+/* For stack pointer */
 _end_stack = ORIGIN(RAM) + LENGTH(RAM);
 /* Used to check that there is enough RAM left */
 _heap_size = 0x200; /* Heap Size (in Bytes) */
@@ -75,7 +75,7 @@ SECTIONS
   } >FLASH
 
   _sdata_lma = LOADADDR(.data);
-  .data : 
+  .data :
   {
     . = ALIGN(4);
     _sdata = .;
@@ -86,7 +86,7 @@ SECTIONS
     _edata = .;
   } >RAM AT> FLASH
 
-  
+
   . = ALIGN(4);
   .bss :
   {
@@ -121,4 +121,3 @@ SECTIONS
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
 }
-

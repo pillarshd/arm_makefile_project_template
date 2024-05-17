@@ -83,7 +83,7 @@ SECTIONS
     KEEP(*(VSymTab))
     __vsymtab_end = .;
     . = ALIGN(4);
- 
+
     /* section information for initial. */
     . = ALIGN(4);
     __rt_init_start = .;

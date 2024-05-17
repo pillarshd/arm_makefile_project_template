@@ -1,11 +1,11 @@
-#include "system.h" 
+#include "system.h"
 
 static u8 fac_us = 0; // 1微秒要的步数
 static u16 fac_ms = 0;
 static u32 fac_s = 0;
 
 // 定义了OS优先级，说明有OS
-#ifdef RT_THREAD_PRIORITY_MAX 
+#ifdef RT_THREAD_PRIORITY_MAX
 #define _ENTER_CRITICAL()   rt_enter_critical()
 #define _EXIT_CRITICAL()    rt_exit_critical()
 #else
